@@ -32,7 +32,7 @@ const generateThemeCssVariables = () => {
                         )
                         .join("\n");
 
-                    cssString.push(`${selector} {\n${cssVariables}\n}`);
+                    return cssString.push(`${selector} {\n${cssVariables}\n}`);
                 }
 
                 if (colorKey === "dark") {
@@ -53,10 +53,28 @@ const generateThemeCssVariables = () => {
                         )
                         .join("\n");
 
-                    cssString.push(`${selector} {\n${cssVariables}\n}`);
+                    return cssString.push(`${selector} {\n${cssVariables}\n}`);
                 }
             });
+            return;
         }
+
+        const selector = ":root";
+
+        const cssVariables = Object.entries(value)
+            .map(([mainKey, mainValue]) =>
+                Object.entries(mainValue)
+                    .map(
+                        ([subKey, subValue]) =>
+                            `--${toCssCasting(mainKey)}-${toCssCasting(
+                                subKey
+                            )}: ${subValue};`
+                    )
+                    .join("\n")
+            )
+            .join("\n");
+
+        return cssString.push(`${selector} {\n${cssVariables}\n}`);
     });
 
     return cssString;
