@@ -44,7 +44,7 @@ Design Token은 디자인을 구성하는 최소 단위 값입니다.
 - [ ] Spacing / Radius / Shadow
 
 ### Theme
-- [ ] Dark Mode
+- [x] Dark Mode
 
 ### UI Systems
 - [ ] Layout
