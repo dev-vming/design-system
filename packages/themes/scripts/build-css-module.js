@@ -22,9 +22,11 @@ const generateThemeCssVariables = () => {
                             Object.entries(mainValue)
                                 .map(
                                     ([subKey, subValue]) =>
-                                        `--${colorKey}-${toCssCasting(
+                                        `--${toCssCasting(
                                             mainKey
-                                        )}-${toCssCasting(subKey)}: ${subValue};`
+                                        )}-${toCssCasting(
+                                            subKey
+                                        )}: ${subValue};`
                                 )
                                 .join("\n")
                         )
@@ -41,9 +43,11 @@ const generateThemeCssVariables = () => {
                             Object.entries(mainValue)
                                 .map(
                                     ([subKey, subValue]) =>
-                                        `--${colorKey}-${toCssCasting(
+                                        `--${toCssCasting(
                                             mainKey
-                                        )}-${toCssCasting(subKey)}: ${subValue};`
+                                        )}-${toCssCasting(
+                                            subKey
+                                        )}: ${subValue};`
                                 )
                                 .join("\n")
                         )
@@ -60,7 +64,7 @@ const generateThemeCssVariables = () => {
 
 const generateThemeCss = () => {
     const variables = generateThemeCssVariables();
-    fs.writeFileSync("dist/themes.css", [...variables].join('\n'));
+    fs.writeFileSync("dist/themes.css", [...variables].join("\n"));
 };
 
 generateThemeCss();
