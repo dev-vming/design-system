@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { vars } from "@dev-vming/themes";
+import { vars, classes } from "@dev-vming/themes";
 import styled from "@emotion/styled";
 
 function App() {
@@ -29,5 +29,6 @@ const View = () => (
 );
 
 const Text = styled.p`
+    ${classes.typography.heading['xl']}
     color: ${vars.colors.$static.light.orange[500]};
 `;
